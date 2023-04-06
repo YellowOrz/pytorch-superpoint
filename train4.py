@@ -24,6 +24,9 @@ from settings import EXPER_PATH
 from utils.loader import dataLoader, modelLoader, pretrainedLoader
 from utils.logging import *
 # from models.model_wrap import SuperPointFrontend_torch, PointTracker
+from datetime import datetime as dt
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 ###### util functions ######
 def datasize(train_loader, config, tag='train'):
@@ -133,7 +136,7 @@ if __name__ == '__main__':
     with open(args.config, 'r') as f:
         config = yaml.safe_load(f)
     # EXPER_PATH from settings.py
-    output_dir = os.path.join(EXPER_PATH, args.exper_name)
+    output_dir = os.path.join(EXPER_PATH, args.exper_name + '_' + dt.now().strftime("%m-%d-%H-%M-%S") )
     os.makedirs(output_dir, exist_ok=True)
 
     # with capture_outputs(os.path.join(output_dir, 'log')):

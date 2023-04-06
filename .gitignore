@@ -1,0 +1,7 @@
+*swp
+.vscode
+__pycache__
+datasets
+logs
+log*txt
+runs
