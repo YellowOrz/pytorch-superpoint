@@ -209,16 +209,16 @@ class Train_model_heatmap(Train_model_frontend):
         #     sample['warped_valid_mask'].to(self.device)
         if if_warp:
             img_warp, labels_warp_2D, mask_warp_2D = (
-                sample["warped_img"],
-                sample["warped_labels"],
-                sample["warped_valid_mask"],
+                sample["warped_img"].to(self.device),
+                sample["warped_labels"].to(self.device),
+                sample["warped_valid_mask"].to(self.device),
             )
 
         # homographies
         # mat_H, mat_H_inv = \
         # sample['homographies'].to(self.device), sample['inv_homographies'].to(self.device)
         if if_warp:
-            mat_H, mat_H_inv = sample["homographies"], sample["inv_homographies"]
+            mat_H, mat_H_inv = sample["homographies"].to(self.device), sample["inv_homographies"].to(self.device)
 
         # zero the parameter gradients
         self.optimizer.zero_grad()

@@ -2,8 +2,8 @@ data:
     # name: 'coco'
     dataset: 'Coco' # 'coco'
 
-    labels: datasets/magicpoint_synth20_homoAdapt100_coco_f1/predictions
-    root: # datasets/COCO
+    labels: datasets/COCO_label
+    root: datasets/COCO
     root_split_txt: # /datasets/COCO
 
     gaussian_label:
@@ -51,8 +51,8 @@ data:
 front_end_model: 'Train_model_heatmap'  # 'Train_model_frontend'
 
 training:
-    workers_train: 4 # 16
-    workers_val: 2 # 2
+    workers_train: 8 # 16
+    workers_val: 4 # 2
 
 model:
     # name: 'magic_point'
@@ -64,7 +64,7 @@ model:
         loss_type: 'softmax'
 
 
-    batch_size: 8 # 32
+    batch_size: 16 # 32
     eval_batch_size: 8 # 32
     learning_rate: 0.0001 # 0.0001
     detection_threshold: 0.015 # 0.015
@@ -99,7 +99,7 @@ tensorboard_interval: 200 # 200
 save_interval: 200 # 2000
 validation_size: 5
 
-pretrained: 
+pretrained: 'logs/magicpoint_synth_04-06-13-16-44/checkpoints/superPointNet_200000_checkpoint.pth.tar'
 
 
 

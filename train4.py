@@ -26,7 +26,7 @@ from utils.logging import *
 # from models.model_wrap import SuperPointFrontend_torch, PointTracker
 from datetime import datetime as dt
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+os.environ["CUDA_VISIBLE_DEVICES"] = "4"
 
 ###### util functions ######
 def datasize(train_loader, config, tag='train'):

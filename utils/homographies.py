@@ -269,7 +269,7 @@ def sample_homography(
 import torch
 def scale_homography_torch(H, shape, shift=(-1,-1), dtype=torch.float32):
     height, width = shape[0], shape[1]
-    trans = torch.tensor([[2./width, 0., shift[0]], [0., 2./height, shift[1]], [0., 0., 1.]], dtype=dtype)
+    trans = torch.tensor([[2./width, 0., shift[0]], [0., 2./height, shift[1]], [0., 0., 1.]], dtype=dtype).cuda()
     # print("torch.inverse(trans) ", torch.inverse(trans))
     # print("H: ", H)
     H_tf = torch.inverse(trans) @ H @ trans
